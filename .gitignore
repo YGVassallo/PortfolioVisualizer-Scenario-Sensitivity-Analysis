@@ -1,0 +1,9 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code temporary files
+tempCodeRunnerFile.py
+
+# Generated outputs
+Outputs/

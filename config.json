@@ -1,0 +1,51 @@
+{   
+    "baseline":{
+        "simulation_model_configuration":{
+            "initialAmount":1000000,
+            "adjustmentType":"Withdraw fixed amount periodically",
+            "adjustmentAmount":45000,
+            "inflationAdjusted":"Yes",
+            "frequency":"Annually",
+            "years":10,
+            "bootstrapModel":"Single Year",
+            "sequenceStressTest":"No Adjustments",
+            "rebalanceType":"Rebalance annually",
+            "customIntervals":"Defaults"
+        },
+        "asset_allocation": {
+            "US Stock Market":40,
+            "Global ex-US Stock Market":20,
+            "Total US Bond Market":30,
+            "REIT":5,
+            "Gold":5
+        }
+    },
+
+    "scenario":{
+        "simulation_model_configuration":{
+            "initialAmount":[1000000, 1000000], 
+            "adjustmentType":"Withdraw fixed amount periodically",
+            "adjustmentAmount":[45000,45000],
+            "inflationAdjusted":"Yes",
+            "frequency":["Annually","Quarterly"],
+            "years":10,
+            "bootstrapModel":"Single Year",
+            "sequenceStressTest":"No Adjustments",
+            "rebalanceType":"Rebalance annually",
+            "customIntervals":"Defaults"
+        },
+        "asset_allocation": {
+            "US Stock Market":[40,60],
+            "Global ex-US Stock Market":[10, 30],
+            "Total US Bond Market":[10, 30],
+            "REIT":[0, 5],
+            "Gold":[0, 5]
+        }
+    },
+
+    "sampling_config": {
+        "num_samples": 1,
+        "max_attempts": 1000        
+    }
+    
+}
