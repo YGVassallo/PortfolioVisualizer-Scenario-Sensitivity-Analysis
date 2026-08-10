@@ -124,11 +124,9 @@ def lossProb(df, percentages, cashflows:bool, timePeriod:bool):
     keys=["Scenario"]
     for percentage in percentages:
         temp=percentage+key
-        #print(df[temp])
         if temp in df.columns:
             keys.append(temp)
     loss_prob_df=df[keys]
-    #print(len(loss_prob_df))
     return loss_prob_df
 
 def plotLossProb(loss_prob, percentages, title:str, folder):
@@ -367,7 +365,6 @@ def analyse_output(df, folder):
 
     percentiles = ["10th Percentile", "25th Percentile", "50th Percentile", "75th Percentile", "90th Percentile"]
 
-    # --- 1. Portfolio End Balance (wichtigster Output) ---
     end_balance_nominal = perfSummary(df, percentiles, "Portfolio End Balance (nominal)")
     plotPerfSummary(end_balance_nominal, percentiles, "Portfolio End Balance (nominal)", folder)
 
@@ -379,7 +376,6 @@ def analyse_output(df, folder):
     interesting = find_interesting(scores)
     plot_interesting_sensitivity(df, output_col, interesting, folder, output_col)
 
-    # --- 2. Expected Annual Return ---
     years = ["1 Year", "3 Years", "5 Years", "10 Years", "15 Years", "20 Years", "25 Years", "30 Years", "40 Years", "50 Years"]
     expected_annual_return_50 = expectedAnnualReturn(df, years, "50th Percentile")
     plotExpectedAnnualReturn(expected_annual_return_50, years, "Expected Annual Return 50th Percentile", folder)
@@ -392,7 +388,6 @@ def analyse_output(df, folder):
     interesting = find_interesting(scores)
     plot_interesting_sensitivity(df, output_col, interesting, folder, output_col)
 
-    # --- 3. Loss Probability (Risiko) ---
     percentages = [
         "2.50%", "5.00%", "7.50%", "10.00%", "12.50%",
         "15.00%", "17.50%", "20.00%", "22.50%", "25.00%",
@@ -410,9 +405,3 @@ def analyse_output(df, folder):
 
         interesting = find_interesting(scores)
         plot_interesting_sensitivity(df, output_col, interesting, folder, output_col)
-
-'''
-def analyse_portfolio(df):
-    print(df.head())
-    print(df.columns)
-'''

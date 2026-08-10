@@ -32,7 +32,6 @@ def sample_allocation_config(config):
         sampled_allocation = {}
         remaining = 100
 
-        # alle außer letztes Asset
         for i in range(len(assets) - 1):
             name, bounds = assets[i]
             min_val, max_val = bounds
@@ -48,7 +47,6 @@ def sample_allocation_config(config):
             remaining -= value
 
         else:
-            # letztes Asset
             last_name, last_bounds = assets[-1]
             min_val, max_val = last_bounds
 
